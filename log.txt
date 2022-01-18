@@ -1,0 +1,102 @@
+URL: /
+Timestamp: Mon Jan 17 2022 23:39:22 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Mon Jan 17 2022 23:39:22 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Mon Jan 17 2022 23:46:52 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Mon Jan 17 2022 23:46:52 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Mon Jan 17 2022 23:46:56 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Mon Jan 17 2022 23:46:56 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Mon Jan 17 2022 23:53:03 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Mon Jan 17 2022 23:53:04 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Tue Jan 18 2022 00:26:31 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 00:26:32 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Tue Jan 18 2022 00:28:44 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 00:28:44 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /documentation
+Timestamp: Tue Jan 18 2022 00:29:40 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 00:29:40 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Tue Jan 18 2022 00:39:27 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 00:39:30 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Tue Jan 18 2022 00:39:42 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 00:39:42 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /documentation
+Timestamp: Tue Jan 18 2022 00:39:50 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 00:39:50 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Tue Jan 18 2022 00:44:13 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 00:44:13 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Tue Jan 18 2022 00:57:49 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 00:57:50 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /documentation
+Timestamp: Tue Jan 18 2022 00:58:05 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 00:58:05 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Tue Jan 18 2022 01:02:43 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 01:02:43 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Tue Jan 18 2022 01:04:27 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 01:04:27 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Tue Jan 18 2022 01:11:28 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 01:11:29 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /
+Timestamp: Tue Jan 18 2022 01:13:43 GMT+0000 (Hora padrão da Europa Ocidental)
+
+URL: /favicon.ico
+Timestamp: Tue Jan 18 2022 01:13:43 GMT+0000 (Hora padrão da Europa Ocidental)
+
