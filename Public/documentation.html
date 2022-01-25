@@ -1,11 +1,90 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
     <meta charset="utf-8">
     <title>App Documentation</title>
   </head>
+
   <body>
+
     <p>The objective of this API is to give access to information about different movies, directors, and genres.</p>
-<p>Tools: Javascript, HTML, Node.js, CSS and SQL</p>
+    <p>Tools: Javascript, HTML, Node.js, CSS and SQL</p>
+
+    <table>
+
+      <tr>
+        <th>Request</th>
+        <th>URL</th>
+        <th>HTTP Method</th>
+        <th>Response</th>
+      </tr>
+
+      <tr>
+        <td>Return a list of ALL movies to the user</td>
+        <td>'/movies'</td>
+        <td>GET</td>
+        <td>Returns a JSON list of movies</td>
+      </tr>
+
+      <tr>
+        <td>Request data about a single movie by title to the user</td>
+        <td>'/movies/:title'</td>
+        <td>GET</td>
+        <td>Returns JSON information about the movie requested</td>
+      </tr>
+
+      <tr>
+        <td>Return data about a genre by name/title</td>
+        <td>'/genres/:genre'</td>
+        <td>GET</td>
+        <td>Returns JSON information about the movie genre requeted</td>
+      </tr>
+
+      <tr>
+        <td>Return data about a director by name</td>
+        <td>'/directors/:directorName'</td>
+        <td>GET</td>
+        <td>Returns JSON information about the director requeted</td>
+      </tr>
+
+      <tr>
+        <td>Register New Users</td>
+        <td>'/user/newUser'</td>
+        <td>POST</td>
+        <td>Adds a new User to JSON object</td>
+      </tr>
+
+      <tr>
+        <td>Update User Info</td>
+        <td>'users/:Username'</td>
+        <td>PUT</td>
+        <td>Returns the updated data fields by the user</td>
+      </tr>
+
+      <tr>
+        <td>Add a movie to list of favorites</td>
+        <td>'favorite/:movieName'</td>
+        <td>POST</td>
+        <td>Returns a text confirming which movie was added successfully</td>
+      </tr>
+
+      <tr>
+        <td>Delete a movie from the list of favorites</td>
+        <td>/favorite/:deleteMovieName</td>
+        <td>DELETE</td>
+        <td>Returns a text confirming which movie was deleted successfully</td>
+      </tr>
+
+      <tr>
+        <td>Deregister a User</td>
+        <td>'users/:deleteUser'</td>
+        <td>DELETE</td>
+        <td>Returns a text confirming the user was deleted successfully</td>
+      </tr>
+
+    </table>
+
   </body>
+
 </html>
