@@ -9,55 +9,132 @@ app.use(morgan('common'));
 let topMovies = [
   {
     title: 'Wolf of Wall Street',
-    year: '2013'
+    genre: 'Comedy',
+    director: 'Martin Scorsese'
   },
   {
     title: 'The Lord of the Rings: The Return of the King',
-    year: '2003'
+    genre: 'Adventure',
+    director: 'Peter Jackson'
   },
   {
     title: 'Star Wars: Episode III – Revenge of the Sith',
-    year: '2005'
+    genre: 'Scy-fy',
+    director: 'George Lucas'
   },
   {
     title: 'Shrek',
-    year: '2001'
+    genre: 'Animation',
+    director: 'Vicky Jenson'
   },
   {
     title: "The Emperor's New Groove",
-    year: '2000'
+    genre: 'Animation',
+    director: 'Mark Dindal'
   },
   {
     title: 'Monsters, Inc.',
-    year: '2001'
+    genre: 'Animation',
+    director: 'Pete Docter'
   },
   {
     title: 'Avengers: Endgame',
-    year: '2019'
+    genre: 'Action',
+    director: 'Anthony Russo'
   },
   {
     title: 'Harry Potter and the Prisoner of Azkaban',
-    year: '2004'
+    genre: 'Fantasy',
+    director: 'Alfonso Cuarón'
   },
   {
     title: 'Aladdin',
-    year: '1992'
+    genre: 'Animation',
+    director: 'Ron Clements'
   },
   {
     title: 'The Road to El Dorado',
-    year: '2000'
+    genre: 'Animation',
+    director: 'Bibo Bergeron'
   }
 ];
+
+//GET Welcome Message
 
 app.get ('/', (req, res) => {
   res.send ('Welcome to my movie API');
 });
 
+//GET All Movies
+
 app.get ('/movies', (req, res) => {
   res.json (topMovies);
 });
 
+//Get Movies by Title
+
+app.get('/movies/:title', (req, res) => {
+  res.json(
+    topMovies.find(movie => {
+      return movie.title === req.params.title;
+    })
+  );
+});
+
+//Get Movies by Genre
+
+app.get("/genres/:genre", (req, res) => {
+  res.json(
+    topMovies.find(movie => {
+      return movie.genre === req.params.genre;
+    })
+  );
+});
+
+//Get Movies by Director
+
+app.get("/directors/:director", (req, res) => {
+  res.json(
+    topMovies.find(movie => {
+      return movie.director === req.params.director;
+    })
+  );
+});
+
+//Get Documentation
+
 app.use(express.static('public'));
+
+//Add a New User
+
+app.post("/users/:newUser", (req, res) => {
+  res.send("New user added successfully!");
+});
+
+//Update User Information
+
+app.put("/users/:username", (req, res) => {
+  res.send("Username updated succesfully!");
+});
+
+// Add Movie to User's Favorite List
+
+app.post("/favorite/:newMovie", (req, res) => {
+  res.send("Movie added succesfully!");
+});
+
+//Delete Movie From User's Favorite List
+
+app.delete("/favorite/:Title", (req, res) => {
+  res.send("Movie deleted succesfully!");
+});
+
+//Delete User
+
+app.delete("/users/:username", (req, res) => {
+  res.send("User deleted succesfully!");
+});
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
