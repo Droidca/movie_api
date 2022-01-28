@@ -85,7 +85,7 @@ app.get('/movies/:title', (req, res) => {
 
 app.get("/genres/:genre", (req, res) => {
   res.json(
-    topMovies.find(movie => {
+    topMovies.filter(movie => {
       return movie.genre === req.params.genre;
     })
   );
@@ -95,7 +95,7 @@ app.get("/genres/:genre", (req, res) => {
 
 app.get("/directors/:director", (req, res) => {
   res.json(
-    topMovies.find(movie => {
+    topMovies.filter(movie => {
       return movie.director === req.params.director;
     })
   );
