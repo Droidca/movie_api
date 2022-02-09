@@ -14,9 +14,10 @@
     <table>
 
       <tr>
-        <th>Request</th>
+        <th>Business Logic</th>
         <th>URL</th>
         <th>HTTP Method</th>
+        <th>Request</th>
         <th>Response</th>
       </tr>
 
@@ -24,48 +25,119 @@
         <td>Return a list of ALL movies to the user</td>
         <td>'/movies'</td>
         <td>GET</td>
-        <td>Returns a JSON list of movies</td>
+        <td>None</td>
+        <td>Shows Info about all movies, like this:<br>
+          Title: {type: String, required: true},<br>
+          Description:{type: String, required: true},<br>
+          Genre: {<br>
+            Name: String,<br>
+            Description: String<br>
+          },<br>
+          Director: {<br>
+            Name: String,<br>
+            Bio: String<br>
+          },<br>
+          Actors: [String],<br>
+          ImagePath: String,<br>
+          Featured: Boolean</td>
       </tr>
 
       <tr>
         <td>Request data about a single movie by title to the user</td>
         <td>'/movies/:title'</td>
         <td>GET</td>
-        <td>Returns JSON information about the movie requested</td>
+        <td>None</td>
+        <td>Returns JSON information about the movie requested<br>
+          Title: {type: String, required: true},<br>
+          Description:{type: String, required: true},<br>
+          Genre: {<br>
+            Name: String,<br>
+            Description: String<br>
+          },<br>
+          Director: {<br>
+            Name: String,<br>
+            Bio: String<br>
+          },<br>
+          Actors: [String],<br>
+          ImagePath: String,<br>
+          Featured: Boolean</td>
       </tr>
 
       <tr>
         <td>Return data about a genre by name/title</td>
         <td>'/genres/:genre'</td>
         <td>GET</td>
-        <td>Returns JSON information about the movie genre requeted</td>
+        <td>None</td>
+        <td>Returns JSON information about the movie genre requeted<br>
+          Genre: {<br>
+            Description: String<br></td>
       </tr>
 
       <tr>
         <td>Return data about a director by name</td>
         <td>'/directors/:directorName'</td>
         <td>GET</td>
-        <td>Returns JSON information about the director requeted</td>
+        <td>None</td>
+        <td>Returns JSON information about the director requeted<br>
+          Director: {<br>
+            Name: String,<br>
+            Bio: String<br>
+          },<br></td>
       </tr>
 
       <tr>
         <td>Register New Users</td>
         <td>'/user/newUser'</td>
         <td>POST</td>
-        <td>Adds a new User to JSON object</td>
+        <td>A JSON object holding data about a user to add, structured like:
+        {<br>
+          "Username": String,<br>
+          "Password": String,<br>
+          "Email": String,<br>
+          "Birthday": Date,<br>
+          }
+        </td>
+        <td>A JSON object holding data about the user that has been just added, structured like:<br>
+          {
+            "_id": "",
+            "Username": String,
+            "Password": String,
+            "Email": String,
+            "Birthday": Date,
+            "FavoriteMovies": []
+          }
+        </td>
       </tr>
 
       <tr>
         <td>Update User Info</td>
         <td>'users/:Username'</td>
         <td>PUT</td>
-        <td>Returns the updated data fields by the user</td>
+        <td>A JSON object holding data about a user to add, structured like:
+        {<br>
+          "Username": String,<br>
+          "Password": String,<br>
+          "Email": String,<br>
+          "Birthday": Date,<br>
+          }
+        </td>
+        <td>Returns the updated data fields by the user<br>
+          {
+            "_id": "61fa65249526ff993d4b0ab4",
+            "Username": "testUser",
+            "Password": "changedPassword",
+            "Email": "testUser@yahoo.com",
+            "Birthday": "1950-04-25T00:00:00.000Z",
+            "FavoriteMovies": []
+          },
+        </td>
       </tr>
 
       <tr>
         <td>Add a movie to list of favorites</td>
         <td>'favorite/:movieName'</td>
         <td>POST</td>
+        <td>None</td>
         <td>Returns a text confirming which movie was added successfully</td>
       </tr>
 
@@ -73,6 +145,7 @@
         <td>Delete a movie from the list of favorites</td>
         <td>/favorite/:deleteMovieName</td>
         <td>DELETE</td>
+        <td>None</td>
         <td>Returns a text confirming which movie was deleted successfully</td>
       </tr>
 
@@ -80,6 +153,7 @@
         <td>Deregister a User</td>
         <td>'users/:deleteUser'</td>
         <td>DELETE</td>
+        <td>None</td>
         <td>Returns a text confirming the user was deleted successfully</td>
       </tr>
 
