@@ -19,6 +19,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('common'));
 
+const cors = require('cors');
+app.use(cors());
+
 // imports the auth.js file into the project
 // the (app) argument ensures that Express is availible in auth.js file as well
 let auth = require('./auth')(app);
@@ -26,6 +29,10 @@ let auth = require('./auth')(app);
 // requires the Passport module and imports passport.js
 const passport = require('passport');
 require('./passport');
+
+// Requires the express-validator package
+
+const { check, validationResult } = require('express-validator');
 
 
 //GET Welcome Message
@@ -94,7 +101,21 @@ app.use(express.static('public'));
 
 //Add a New User
 
-app.post('/users', (req, res) => {
+app.post('/users',
+[
+  check('Username', 'Username is required').isLength({min: 5}),
+  check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+  check('Password', 'Password is required').not().isEmpty(),
+  check('Email', 'Email does not appear to be valid').isEmail()
+], (req, res) => {
+
+  let errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
+    }
+
+  let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
@@ -103,7 +124,7 @@ app.post('/users', (req, res) => {
         Users
           .create({
             Username: req.body.Username,
-            Password: req.body.Password,
+            Password: hashedPassword,
             Email: req.body.Email,
             Birthday: req.body.Birthday
           })
@@ -212,6 +233,7 @@ app.use((err, req, res, next) => {
   res.status(500).send('Ups! The tape broke!');
 });
 
-app.listen(8080, () => {
-    console.log('Your app is listening on port 8080.');
+const port = process.env.PORT || 8080;
+app.listen(port, '0.0.0.0',() => {
+ console.log('Listening on Port ' + port);
 });
