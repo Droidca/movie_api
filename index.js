@@ -1,27 +1,31 @@
 const mongoose = require('mongoose');
-const Models = require ('./models.js');
+const req = require('express/lib/request');
+const res = require('express/lib/response');
+const cors = require('cors');
+const passport = require('passport');
+const { check, validationResult } = require('express-validator');
+const express = require ('express'),
+morgan = require ('morgan'),
+bodyParser = require('body-parser'),
+uuid = require('uuid');
 
-const Movies = Models.Movie;
-const Users = Models.User;
+const Movie_list = require ('./movies.js');
+const User = require ('./user.js');
 
-mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+const app = express ();
+// Requires the express-validator package
+
+const Movies = Movie_list.Movie;
+const Users = User.User;
+
+mongoose.connect('mongodb+srv://pacAdmin:walrus-has-rollerskates@popcorns-and-coke.kwg2d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 //mongoose.connect('mongodb://localhost:27017/myflix', { useNewUrlParser: true, useUnifiedTopology: true }); (For test proposes)
 
-const express = require ('express'),
-  morgan = require ('morgan'),
-  bodyParser = require('body-parser'),
-  uuid = require('uuid');
-  const req = require('express/lib/request');
-  const res = require('express/lib/response');
-
-
-const app = express ();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('common'));
 
-const cors = require('cors');
 let allowedOrigins = ['http://localhost:8080', 'http://testsite.com', 'http://localhost:1234'];
 
 app.use(cors({
@@ -40,17 +44,11 @@ app.use(cors({
 let auth = require('./auth')(app);
 
 // requires the Passport module and imports passport.js
-const passport = require('passport');
 require('./passport');
-
-// Requires the express-validator package
-
-const { check, validationResult } = require('express-validator');
-
 
 //GET Welcome Message
 
-app.get ('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get ('/', (req, res) => {
   res.send ('Welcome to my movie API');
 });
 
