@@ -18,7 +18,7 @@ const app = express ();
 const Movies = Movie_list.Movie;
 const Users = User.User;
 
-mongoose.connect('mongodb+srv://pacAdmin:walrus-has-rollerskates@popcorns-and-coke.kwg2d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://pacAdmin:walrus-has-rollerskates@popcorns-and-coke.kwg2d.mongodb.net/popcorns-and-coke?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 //mongoose.connect('mongodb://localhost:27017/myflix', { useNewUrlParser: true, useUnifiedTopology: true }); (For test proposes)
 
