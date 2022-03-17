@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('common'));
 
-app.use(cors());
+app.use(cors({origin: '*'}));
 
 // imports the auth.js file into the project
 // the (app) argument ensures that Express is availible in auth.js file as well
