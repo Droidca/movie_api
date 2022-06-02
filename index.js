@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('common'));
 
-app.use(cors({origin: '*'}));
+app.use(cors({ origin: '*' }));
 
 // imports the auth.js file into the project
 // the (app) argument ensures that Express is availible in auth.js file as well
@@ -35,13 +35,25 @@ let auth = require('./auth')(app);
 // requires the Passport module and imports passport.js
 require('./passport');
 
-//GET Welcome Message
+/**
+ * redirects roo to index.html
+ * @param {express.request} req
+ * @param {express.response} res
+ */
 
 app.get('/', (req, res) => {
   res.send('Welcome to my movie API');
 });
 
 //GET All Movies
+
+/**
+ * /movies end-point
+ * method: get
+ * get all movies
+ * @param {express.request} req
+ * @param {express.response} res
+ */
 
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
@@ -56,6 +68,14 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
 
 //Get Movies by Title
 
+/**
+ * /movies/:Title end-point
+ * method: get
+ * movies by title
+ * @param {express.request} req
+ * @param {express.response} res
+ */
+
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ Title: req.params.Title })
     .then((movie) => {
@@ -68,6 +88,14 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req
 });
 
 //Get Genre Description by Name
+
+/**
+ * /genres end-point
+ * method: get
+ * get description of a genre by name
+ * @param {express.request} req
+ * @param {express.response} res
+ */
 
 app.get('/genres/:Name', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ 'Genre.Name': req.params.Name })
@@ -83,6 +111,14 @@ app.get('/genres/:Name', passport.authenticate('jwt', { session: false }), (req,
 
 
 //Get Info about Director by Name
+
+/**
+ * /directors end-point
+ * method: get
+ * director by name
+ * @param {express.request} req
+ * @param {express.response} res
+ */
 
 app.get("/directors/:Name", passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ 'Director.Name': req.params.Name })
@@ -100,6 +136,23 @@ app.get("/directors/:Name", passport.authenticate('jwt', { session: false }), (r
 app.use(express.static('public'));
 
 //Add a New User
+
+/* We’ll expect JSON in this format
+{
+  ID: Integer,
+  Username: String,
+  Password: String,
+  Email: String,
+  Birthday: Date
+}*/
+/**
+ * /users end-point
+ * method: post
+ * register user profile
+ * expects Username, Password, Email, Birthday
+ * @param {express.request} req
+ * @param {express.response} res
+ */
 
 app.post('/users',
   [
@@ -143,6 +196,14 @@ app.post('/users',
 
 // gets a user by username
 
+/**
+ * /users end-point
+ * method: get
+ * get user by username
+ * @param {express.request} req
+ * @param {express.response} res
+ */
+
 app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOne({ Username: req.params.Username })
     .then((users) => {
@@ -155,6 +216,14 @@ app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (r
 });
 
 //Update User Information
+
+/**
+ * /users/ end-point
+ * method: put
+ * update user's profile
+ * @param {express.request} req
+ * @param {express.response} res
+ */
 
 app.put("/users/:Username", passport.authenticate('jwt', { session: false }),
   [
@@ -192,6 +261,14 @@ app.put("/users/:Username", passport.authenticate('jwt', { session: false }),
 
 // Add Movie to User's Favorite List
 
+/**
+ * /users end-point
+ * method: post
+ * add movie to user's favorites
+ * @param {express.request} req
+ * @param {express.response} res
+ */
+
 app.post("/users/:Username/movies/:MovieID", passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
     $push: { FavoriteMovies: req.params.MovieID }
@@ -209,6 +286,14 @@ app.post("/users/:Username/movies/:MovieID", passport.authenticate('jwt', { sess
 
 //Delete Movie From User's Favorite List
 
+/**
+ * /users end-point
+ * method: delete
+ * delete a movie from user's favorites
+ * @param {express.request} req
+ * @param {express.response} res
+ */
+
 app.delete("/users/:Username/movies/:MovieID", passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
     $pull: { FavoriteMovies: req.params.MovieID }
@@ -225,6 +310,14 @@ app.delete("/users/:Username/movies/:MovieID", passport.authenticate('jwt', { se
 });
 
 //Delete User
+
+/**
+ * /users end-point
+ * method: delete
+ * delete user's profile
+ * @param {express.request} req
+ * @param {express.response} res
+ */
 
 app.delete("/users/:Username", passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndRemove({ Username: req.params.Username })
