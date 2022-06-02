@@ -52,8 +52,6 @@ Allow existing users to deregister.
 
 The API is deployed to Heroku
 ### <a href="https://popcorns-and-coke.herokuapp.com/">LIVE DEMO</a>
-The app is deployed to GitHub Pages 
-### <a href="https://github.com/Droidca/movie_api">LIVE DEMO</a>
 
 
 
